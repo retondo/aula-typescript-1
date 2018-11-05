@@ -29,6 +29,7 @@ export class NegociacaoView extends View<ListaNegociacao> {
                 <tfoot>
                 </tfoot>
             </table>
+            <footer></footer>
         `
     }
 }
