@@ -1,5 +1,5 @@
 export class View {
-    constructor(seletor, escapar) {
+    constructor(seletor, escapar = false) {
         this._elemento = document.querySelector(seletor);
         this._escapar = escapar;
     }

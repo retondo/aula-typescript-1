@@ -9,6 +9,6 @@ export class ListaNegociacao {
     }
 
     paraArray(): Negociacao[] {
-        return [].concat(this._listaNegociacao);
+        return ([] as Negociacao[]).concat(this._listaNegociacao);
     }
 }
