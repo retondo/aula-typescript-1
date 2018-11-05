@@ -12,9 +12,14 @@ export class NegociacaoController {
     }
     adicionar(event) {
         event.preventDefault();
-        const negociacao = new Negociacao(new Date(this._inputData.value.replace(/-/g, ',')), Number.parseInt(this._inputQuantidade.value), Number.parseFloat(this._inputValor.value));
-        this._listaNegociacao.adicionar(negociacao);
-        this._negociacaoView.update(this._listaNegociacao);
-        this._mensagemView.update('Negociação adicionada com sucesso!');
+        try {
+            const negociacao = new Negociacao(new Date(this._inputData.value.replace(/-/g, ',')), Number.parseInt(this._inputQuantidade.value), Number.parseFloat(this._inputValor.value));
+            this._listaNegociacao.adicionar(negociacao);
+            this._negociacaoView.update(this._listaNegociacao);
+            this._mensagemView.update('Negociação adicionada com sucesso!');
+        }
+        catch (error) {
+            this._mensagemView.update(error.message);
+        }
     }
 }
