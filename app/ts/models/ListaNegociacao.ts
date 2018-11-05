@@ -1,4 +1,6 @@
-class ListaNegociacao {
+import { Negociacao } from './Negociacao';
+
+export class ListaNegociacao {
 
     private _listaNegociacao: Negociacao[] = [];
 
