@@ -6,7 +6,8 @@
         "noImplicitAny": true,
         "removeComments": true,
         "module": "es6",
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "experimentalDecorators": true
     },
     "include": [
         "app/ts/**/*"

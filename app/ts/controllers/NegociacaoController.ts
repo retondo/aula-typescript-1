@@ -1,18 +1,23 @@
 import { ListaNegociacao, Negociacao } from '../models/index';
 import { NegociacaoView, MensagemView } from '../views/index';
+import { domInject } from '../helpers/decorators/domInject';
 
 export class NegociacaoController {
+
+    @domInject('#data')
     private _inputData: HTMLInputElement;
+
+    @domInject('#quantidade')
     private _inputQuantidade: HTMLInputElement;
+
+    @domInject('#valor')
     private _inputValor: HTMLInputElement;
+
     private _listaNegociacao = new ListaNegociacao();
     private _negociacaoView = new NegociacaoView('#tableView');
     private _mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
-        this._inputData = <HTMLInputElement>document.querySelector("#data");
-        this._inputQuantidade = <HTMLInputElement>document.querySelector("#quantidade");
-        this._inputValor = <HTMLInputElement>document.querySelector("#valor");
         this._negociacaoView.update(this._listaNegociacao);
     }
 
@@ -29,10 +34,14 @@ export class NegociacaoController {
             this._listaNegociacao.adicionar(negociacao);
             this._negociacaoView.update(this._listaNegociacao);
             this._mensagemView.update('Negociação adicionada com sucesso!');
-            
+
         } catch(error) {
             this._mensagemView.update(error.message);
         }
+    }
+
+    importarDados() {
+        alert('oi');
     }
 
 }
