@@ -12,6 +12,21 @@ export class Negociacao {
     _isWorkingDay(date) {
         return date.getDay() != DiasDaSemana.Domingo && date.getDay() != DiasDaSemana.Sabado;
     }
+    paraTexto() {
+        console.log(`
+            Data: ${this.data}
+            Quantidade: ${this.quantidade}
+            Valor: ${this.valor}
+            Volume: ${this.volume}
+        `);
+    }
+    isEqual(negociacao) {
+        return negociacao.data.getDate() == this.data.getDate()
+            && negociacao.data.getMonth() == this.data.getMonth()
+            && negociacao.data.getFullYear() == this.data.getFullYear()
+            && negociacao.quantidade == this.quantidade
+            && negociacao.valor == this.valor;
+    }
 }
 var DiasDaSemana;
 (function (DiasDaSemana) {

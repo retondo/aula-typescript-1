@@ -8,4 +8,11 @@ export class ListaNegociacao {
     paraArray() {
         return [].concat(this._listaNegociacao);
     }
+    paraTexto() {
+        console.log('Impressão');
+        console.log(JSON.stringify(this._listaNegociacao));
+    }
+    isEqual(listaNegociacao) {
+        return JSON.stringify(this._listaNegociacao) == JSON.stringify(listaNegociacao.paraArray());
+    }
 }

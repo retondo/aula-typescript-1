@@ -1,6 +1,8 @@
 import { Negociacao } from './Negociacao';
+import { Imprimivel } from './Imprimivel';
+import { Igualavel } from './Igualavel';
 
-export class ListaNegociacao {
+export class ListaNegociacao implements Imprimivel, Igualavel<ListaNegociacao> {
 
     private _listaNegociacao: Negociacao[] = [];
 
@@ -10,5 +12,14 @@ export class ListaNegociacao {
 
     paraArray(): Negociacao[] {
         return ([] as Negociacao[]).concat(this._listaNegociacao);
+    }
+
+    paraTexto(): void {
+        console.log('Impressão');
+        console.log(JSON.stringify(this._listaNegociacao));
+    }
+
+    isEqual(listaNegociacao: ListaNegociacao): boolean {
+        return JSON.stringify(this._listaNegociacao) == JSON.stringify(listaNegociacao.paraArray());
     }
 }
